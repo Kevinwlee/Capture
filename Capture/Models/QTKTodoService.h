@@ -10,6 +10,7 @@
 #import "QTKTodoItem.h"
 
 #define kTodoItemAddedNotification @"todoItemAddedNotification"
+#define kLogItemAddedNotification @"logItemAddedNotification"
 
 @interface QTKTodoService : NSObject
 + (QTKTodoService *)sharedService;
@@ -17,4 +18,5 @@
 - (NSArray *)todoItemsAtIndexes:(NSIndexSet *)indexes;
 - (void)saveTodoItem:(QTKTodoItem *)item;
 - (void)saveTodoItemWithQuickInputString:(NSString *)quickInput;
+- (NSArray *)allLogItems;
 @end

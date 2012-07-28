@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QTKTodoService.h"
 
 @interface QTKLogTableViewController : UITableViewController
 @property (nonatomic, strong)NSMutableArray *items;

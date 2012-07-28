@@ -15,6 +15,7 @@
 @end
 
 @implementation QTKToDoTableViewController
+@synthesize delegate;
 @synthesize items = _items;
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -112,13 +113,10 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if (self.delegate) {
+        QTKTodoItem *selectedItem = [self.items objectAtIndex:indexPath.row];
+        [self.delegate didSelecteTodoItem:selectedItem];
+    }
 }
 
 @end

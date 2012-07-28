@@ -10,4 +10,8 @@
 
 @interface QTKTodoItem : NSObject
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, readonly) NSString *titleClean;
+
+- (BOOL)isTodo;
+
 @end

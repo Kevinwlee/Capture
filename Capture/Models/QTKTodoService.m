@@ -10,10 +10,12 @@
 
 @interface QTKTodoService()
 @property (nonatomic, strong) NSMutableArray *todoItems;
+@property (nonatomic, strong) NSMutableArray *logItems;
 @end
 
 @implementation QTKTodoService
 @synthesize todoItems = _todoItems;
+@synthesize logItems = _logItems;
 
 + (QTKTodoService *)sharedService {
     static QTKTodoService * _sharedService = nil;
@@ -30,6 +32,7 @@
         return nil;
     }
     _todoItems = [NSMutableArray array];
+    _logItems = [NSMutableArray array];
     return self;
 }
 
@@ -42,8 +45,13 @@
 }
 
 - (void)saveTodoItem:(QTKTodoItem *)item {
-    [self.todoItems addObject:item];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTodoItemAddedNotification object:item];
+    if ([item isTodo]) {
+        [self.todoItems addObject:item];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTodoItemAddedNotification object:item];
+    } else {
+        [self.logItems addObject:item];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLogItemAddedNotification object:item];        
+    }
 }
 
 - (void)saveTodoItemWithQuickInputString:(NSString *)quickInput {
@@ -51,4 +59,9 @@
     item.title = quickInput;
     [self saveTodoItem:item];
 }
+
+- (NSArray *)allLogItems{
+    return self.todoItems;
+}
+
 @end

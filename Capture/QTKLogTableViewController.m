@@ -9,6 +9,8 @@
 #import "QTKLogTableViewController.h"
 
 @interface QTKLogTableViewController ()
+- (void)handleAddItemNotification:(NSNotification *)notifcation;
+- (void)addItem:(QTKTodoItem *)todoItem;
 
 @end
 
@@ -25,6 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    QTKTodoService *svc = [QTKTodoService sharedService];
+    self.items = [NSMutableArray arrayWithArray:[svc allLogItems]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAddItemNotification:) name:kLogItemAddedNotification object:nil];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,6 +50,17 @@
 	return YES;
 }
 
+- (void)handleAddItemNotification:(NSNotification *)notifcation {
+    QTKTodoItem *item = notifcation.object;
+    [self addItem:item];
+}
+
+- (void)addItem:(QTKTodoItem *)todoItem {
+    [self.items insertObject:todoItem atIndex:0];
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView endUpdates];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -55,9 +71,12 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     // Configure the cell...
-    
+    QTKTodoItem *item = [self.items objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.title;
     return cell;
 }
 

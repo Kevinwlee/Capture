@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QTKDurationTableViewController : UITableViewController
+@protocol QTKDurationListDelegate <NSObject>
 
+- (void)didSelectDuration:(NSString *)duration;
+
+@end
+
+@interface QTKDurationTableViewController : UITableViewController
+@property (nonatomic, strong) id<QTKDurationListDelegate> delegate;
 @end

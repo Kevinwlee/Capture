@@ -229,7 +229,7 @@
 - (IBAction)projectTapped:(id)sender {
     QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
     quickEntryTableViewController.delegate = self;
-    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"$project1", "$project2", @"$", nil];
+    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"$Invesco Mobile", @"$Docket", @"$TO", @"$University Laundry", nil];
     if(self.popoverController) {
         [self.popoverController dismissPopoverAnimated:YES];
         self.popoverController = nil;
@@ -267,7 +267,7 @@
 - (IBAction)eventTapped:(id)sender {
     QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
     quickEntryTableViewController.delegate = self;
-    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"@event1",@"@event2",@"@event3", @"@", nil];
+    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"@Stand Up",@"@Tech Review", @"@", nil];
     if(self.popoverController) {
         [self.popoverController dismissPopoverAnimated:YES];
         self.popoverController = nil;
@@ -286,6 +286,25 @@
     QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
     quickEntryTableViewController.delegate = self;
     quickEntryTableViewController.items = [NSArray arrayWithObjects:@"^today", @"^tomorrow", @"^sunday", @"^monday", @"^tuesday", @"^wednesday", @"^thursday", @"^",nil];
+    if(self.popoverController) {
+        [self.popoverController dismissPopoverAnimated:YES];
+        self.popoverController = nil;
+        
+    }    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:quickEntryTableViewController];
+    UIButton *button = (UIButton *)sender;
+    [self.popoverController presentPopoverFromRect:button.frame 
+                                            inView:self.quickEntryView 
+                          permittedArrowDirections:UIPopoverArrowDirectionUp 
+                                          animated:YES];
+    [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
+
+}
+
+- (IBAction)actionTapped:(id)sender {
+    QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
+    quickEntryTableViewController.delegate = self;
+    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"add ", @"call ", @"create ",@"email ", @"finalize ", @"pickup ", @"research ", @"send ", nil];
     if(self.popoverController) {
         [self.popoverController dismissPopoverAnimated:YES];
         self.popoverController = nil;

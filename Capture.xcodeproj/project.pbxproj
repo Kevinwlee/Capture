@@ -31,6 +31,8 @@
 		0AD532EC15C00A4700ECEE08 /* QTKTodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD532EB15C00A4700ECEE08 /* QTKTodoItem.m */; };
 		0AFAC1A115C37A0400122CFE /* QTKTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAC19F15C37A0400122CFE /* QTKTagTableViewController.m */; };
 		0AFAC1A215C37A0400122CFE /* QTKTagTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFAC1A015C37A0400122CFE /* QTKTagTableViewController.xib */; };
+		0AFAC1A615C3880D00122CFE /* QTKQuickEntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAC1A415C3880D00122CFE /* QTKQuickEntryTableViewController.m */; };
+		0AFAC1A715C3880D00122CFE /* QTKQuickEntryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFAC1A515C3880D00122CFE /* QTKQuickEntryTableViewController.xib */; };
 		0AFDEDA315BEC4AE001066B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFDEDA215BEC4AE001066B2 /* UIKit.framework */; };
 		0AFDEDA515BEC4AE001066B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFDEDA415BEC4AE001066B2 /* Foundation.framework */; };
 		0AFDEDA715BEC4AE001066B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFDEDA615BEC4AE001066B2 /* CoreGraphics.framework */; };
@@ -72,6 +74,9 @@
 		0AFAC19E15C37A0400122CFE /* QTKTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTKTagTableViewController.h; sourceTree = "<group>"; };
 		0AFAC19F15C37A0400122CFE /* QTKTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTKTagTableViewController.m; sourceTree = "<group>"; };
 		0AFAC1A015C37A0400122CFE /* QTKTagTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QTKTagTableViewController.xib; sourceTree = "<group>"; };
+		0AFAC1A315C3880D00122CFE /* QTKQuickEntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTKQuickEntryTableViewController.h; sourceTree = "<group>"; };
+		0AFAC1A415C3880D00122CFE /* QTKQuickEntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTKQuickEntryTableViewController.m; sourceTree = "<group>"; };
+		0AFAC1A515C3880D00122CFE /* QTKQuickEntryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QTKQuickEntryTableViewController.xib; sourceTree = "<group>"; };
 		0AFDED9E15BEC4AE001066B2 /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFDEDA215BEC4AE001066B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0AFDEDA415BEC4AE001066B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,6 +167,9 @@
 				0AFAC19E15C37A0400122CFE /* QTKTagTableViewController.h */,
 				0AFAC19F15C37A0400122CFE /* QTKTagTableViewController.m */,
 				0AFAC1A015C37A0400122CFE /* QTKTagTableViewController.xib */,
+				0AFAC1A315C3880D00122CFE /* QTKQuickEntryTableViewController.h */,
+				0AFAC1A415C3880D00122CFE /* QTKQuickEntryTableViewController.m */,
+				0AFAC1A515C3880D00122CFE /* QTKQuickEntryTableViewController.xib */,
 			);
 			name = "Quick Entry";
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 				0A8A61A315C31377000A4862 /* Default-Portrait@2x~ipad.png in Resources */,
 				0A8A61A415C31377000A4862 /* Default-Portrait~ipad.png in Resources */,
 				0AFAC1A215C37A0400122CFE /* QTKTagTableViewController.xib in Resources */,
+				0AFAC1A715C3880D00122CFE /* QTKQuickEntryTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +330,7 @@
 				0AD532E915C0096E00ECEE08 /* QTKTodoService.m in Sources */,
 				0AD532EC15C00A4700ECEE08 /* QTKTodoItem.m in Sources */,
 				0AFAC1A115C37A0400122CFE /* QTKTagTableViewController.m in Sources */,
+				0AFAC1A615C3880D00122CFE /* QTKQuickEntryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

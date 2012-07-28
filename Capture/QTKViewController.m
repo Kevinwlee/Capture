@@ -224,8 +224,83 @@
                           permittedArrowDirections:UIPopoverArrowDirectionUp 
                                           animated:YES];
     [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
+}
+
+- (IBAction)projectTapped:(id)sender {
+    QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
+    quickEntryTableViewController.delegate = self;
+    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"$project1", "$project2", @"$", nil];
+    if(self.popoverController) {
+        [self.popoverController dismissPopoverAnimated:YES];
+        self.popoverController = nil;
+        
+    }    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:quickEntryTableViewController];
+    UIButton *button = (UIButton *)sender;
+    [self.popoverController presentPopoverFromRect:button.frame 
+                                            inView:self.quickEntryView 
+                          permittedArrowDirections:UIPopoverArrowDirectionUp 
+                                          animated:YES];
+    [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
 
 }
+
+- (IBAction)peopleTapped:(id)sender {
+    QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
+    quickEntryTableViewController.delegate = self;
+    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"~Jian", @"~Kelsey", @"~Mark", @"~Joie", @"~", nil];
+    if(self.popoverController) {
+        [self.popoverController dismissPopoverAnimated:YES];
+        self.popoverController = nil;
+        
+    }    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:quickEntryTableViewController];
+    UIButton *button = (UIButton *)sender;
+    [self.popoverController presentPopoverFromRect:button.frame 
+                                            inView:self.quickEntryView 
+                          permittedArrowDirections:UIPopoverArrowDirectionUp 
+                                          animated:YES];
+    [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
+
+}
+
+- (IBAction)eventTapped:(id)sender {
+    QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
+    quickEntryTableViewController.delegate = self;
+    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"@event1",@"@event2",@"@event3", @"@", nil];
+    if(self.popoverController) {
+        [self.popoverController dismissPopoverAnimated:YES];
+        self.popoverController = nil;
+        
+    }    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:quickEntryTableViewController];
+    UIButton *button = (UIButton *)sender;
+    [self.popoverController presentPopoverFromRect:button.frame 
+                                            inView:self.quickEntryView 
+                          permittedArrowDirections:UIPopoverArrowDirectionUp 
+                                          animated:YES];
+    [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
+}
+
+- (IBAction)dueTapped:(id)sender {
+    QTKQuickEntryTableViewController *quickEntryTableViewController = [[QTKQuickEntryTableViewController alloc] initWithNibName:@"QTKQuickEntryTableViewController" bundle:nil];
+    quickEntryTableViewController.delegate = self;
+    quickEntryTableViewController.items = [NSArray arrayWithObjects:@"^today", @"^tomorrow", @"^sunday", @"^monday", @"^tuesday", @"^wednesday", @"^thursday", @"^",nil];
+    if(self.popoverController) {
+        [self.popoverController dismissPopoverAnimated:YES];
+        self.popoverController = nil;
+        
+    }    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:quickEntryTableViewController];
+    UIButton *button = (UIButton *)sender;
+    [self.popoverController presentPopoverFromRect:button.frame 
+                                            inView:self.quickEntryView 
+                          permittedArrowDirections:UIPopoverArrowDirectionUp 
+                                          animated:YES];
+    [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
+
+}
+
 
 #pragma mark - UITextFieldDelegate
 
@@ -272,5 +347,12 @@
     self.inputTextField.text = [self.inputTextField.text stringByAppendingString:tag];
     [self.popoverController dismissPopoverAnimated:YES];
 
+}
+
+#pragma mark - QTKQuickEntryDelegate
+
+- (void)didSelectEntry:(NSString *)entry {
+    self.inputTextField.text = [self.inputTextField.text stringByAppendingString:entry];
+    [self.popoverController dismissPopoverAnimated:YES];    
 }
 @end

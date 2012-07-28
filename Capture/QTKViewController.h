@@ -12,8 +12,9 @@
 #import "QTKToDoTableViewController.h"
 #import "QTKTodoService.h"
 #import "QTKTagTableViewController.h"
+#import "QTKQuickEntryTableViewController.h"
 
-@interface QTKViewController : UIViewController <UITextFieldDelegate, QTKTodoListDelegate, QTKDurationListDelegate, QTKTagListDelegate>
+@interface QTKViewController : UIViewController <UITextFieldDelegate, QTKTodoListDelegate, QTKDurationListDelegate, QTKTagListDelegate, QTKQuickEntryDelegate>
 @property (strong, nonatomic) IBOutlet QTKDurationTableViewController *durationTableViewController;
 @property (weak, nonatomic) IBOutlet UIView *quickEntryView;
 @property (strong, nonatomic) IBOutlet QTKLogTableViewController *logTableViewController;
@@ -39,4 +40,9 @@
 
 - (IBAction)durationTapped:(id)sender;
 - (IBAction)tagTapped:(id)sender;
+- (IBAction)projectTapped:(id)sender;
+- (IBAction)peopleTapped:(id)sender;
+- (IBAction)eventTapped:(id)sender;
+- (IBAction)dueTapped:(id)sender;
+
 @end

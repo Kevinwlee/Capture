@@ -69,9 +69,11 @@
 			</object>
 			<object class="IBUITableViewController" id="751871860">
 				<object class="IBUITableView" key="IBUIView" id="129140980">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">274</int>
 					<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<string key="NSReuseIdentifierKey">_NS:10</string>
 					<reference key="IBUIBackgroundColor" ref="1040710199"/>
 					<bool key="IBUIClipsSubviews">YES</bool>
@@ -855,14 +857,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">durationButton</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="555266259"/>
-					</object>
-					<int key="connectionID">81</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">logView</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="633318923"/>
@@ -999,6 +993,15 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">80</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">tagTapped:</string>
+						<reference key="source" ref="499842173"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">86</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -1317,7 +1320,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">85</int>
+			<int key="maxID">86</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1355,6 +1358,7 @@
 						<string key="meetingTapped:">id</string>
 						<string key="okayTapped:">id</string>
 						<string key="startTapped:">id</string>
+						<string key="tagTapped:">id</string>
 						<string key="todoTapped:">id</string>
 						<string key="walkinTapped:">id</string>
 						<string key="webTapped:">id</string>
@@ -1384,6 +1388,10 @@
 							<string key="name">startTapped:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="tagTapped:">
+							<string key="name">tagTapped:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="todoTapped:">
 							<string key="name">todoTapped:</string>
 							<string key="candidateClassName">id</string>
@@ -1398,7 +1406,6 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="durationButton">UIButton</string>
 						<string key="durationTableViewController">QTKDurationTableViewController</string>
 						<string key="externalButton">UIButton</string>
 						<string key="finishedButton">UIButton</string>
@@ -1414,10 +1421,6 @@
 						<string key="webButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="durationButton">
-							<string key="name">durationButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="durationTableViewController">
 							<string key="name">durationTableViewController</string>
 							<string key="candidateClassName">QTKDurationTableViewController</string>

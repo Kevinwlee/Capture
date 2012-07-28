@@ -29,7 +29,6 @@
 @synthesize meetingButton;
 @synthesize webButton;
 @synthesize externalButton;
-@synthesize durationButton;
 @synthesize logView;
 @synthesize quickEntryView;
 @synthesize durationTableViewController;
@@ -73,7 +72,6 @@
     [self setMeetingButton:nil];
     [self setWebButton:nil];
     [self setExternalButton:nil];
-    [self setDurationButton:nil];
     [self setLogView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -192,15 +190,41 @@
     [self handleHUDTapForButton:button andActionString:@"e: "];
 }
 
+
 #pragma mark - Quick Bar Buttons Actions
 
 - (IBAction)durationTapped:(id)sender {
-    if(!self.popoverController){
-        self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.durationTableViewController];
+    if(self.popoverController) {
+        [self.popoverController dismissPopoverAnimated:YES];
+        self.popoverController = nil;        
     }
-    [self.popoverController dismissPopoverAnimated:NO];
-    [self.popoverController presentPopoverFromRect:self.durationButton.bounds inView:self.durationButton permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:self.durationTableViewController];
+    UIButton *durationButton = (UIButton *)sender;
+    [self.popoverController presentPopoverFromRect:durationButton.bounds 
+                                            inView:self.quickEntryView 
+                          permittedArrowDirections:UIPopoverArrowDirectionUp 
+                                          animated:YES];
+    
     [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
+}
+
+- (IBAction)tagTapped:(id)sender {
+    QTKTagTableViewController *tagTableViewController = [[QTKTagTableViewController alloc] initWithNibName:@"QTKTagTableViewController" bundle:nil];
+    tagTableViewController.delegate = self;
+    if(self.popoverController) {
+        [self.popoverController dismissPopoverAnimated:YES];
+        self.popoverController = nil;
+
+    }    
+    self.popoverController = [[UIPopoverController alloc] initWithContentViewController:tagTableViewController];
+    [self.popoverController setContentViewController:tagTableViewController];
+    UIButton *tagButton = (UIButton *)sender;
+    [self.popoverController presentPopoverFromRect:tagButton.frame 
+                                            inView:self.quickEntryView 
+                          permittedArrowDirections:UIPopoverArrowDirectionUp 
+                                          animated:YES];
+    [self.popoverController setPopoverContentSize:CGSizeMake(150,5*44) animated:NO];
+
 }
 
 #pragma mark - UITextFieldDelegate
@@ -242,4 +266,11 @@
     [self.popoverController dismissPopoverAnimated:YES];
 }
 
+#pragma mark - QTKTagListDelegate
+
+- (void)didSelectTag:(NSString *)tag {
+    self.inputTextField.text = [self.inputTextField.text stringByAppendingString:tag];
+    [self.popoverController dismissPopoverAnimated:YES];
+
+}
 @end

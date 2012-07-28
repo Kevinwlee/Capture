@@ -11,8 +11,9 @@
 #import "QTKLogTableViewController.h"
 #import "QTKToDoTableViewController.h"
 #import "QTKTodoService.h"
+#import "QTKTagTableViewController.h"
 
-@interface QTKViewController : UIViewController <UITextFieldDelegate, QTKTodoListDelegate, QTKDurationListDelegate>
+@interface QTKViewController : UIViewController <UITextFieldDelegate, QTKTodoListDelegate, QTKDurationListDelegate, QTKTagListDelegate>
 @property (strong, nonatomic) IBOutlet QTKDurationTableViewController *durationTableViewController;
 @property (weak, nonatomic) IBOutlet UIView *quickEntryView;
 @property (strong, nonatomic) IBOutlet QTKLogTableViewController *logTableViewController;
@@ -25,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *meetingButton;
 @property (weak, nonatomic) IBOutlet UIButton *webButton;
 @property (weak, nonatomic) IBOutlet UIButton *externalButton;
-@property (weak, nonatomic) IBOutlet UIButton *durationButton;
 @property (weak, nonatomic) IBOutlet UIView *logView;
 
 - (IBAction)doneTapped:(id)sender;
@@ -38,4 +38,5 @@
 - (IBAction)walkinTapped:(id)sender;
 
 - (IBAction)durationTapped:(id)sender;
+- (IBAction)tagTapped:(id)sender;
 @end

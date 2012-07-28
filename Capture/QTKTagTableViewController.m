@@ -1,18 +1,19 @@
 //
-//  QTKDurationTableViewController.m
+//  QTKTagTableViewController.m
 //  Capture
 //
-//  Created by Kevin Lee on 7/24/12.
+//  Created by Kevin Lee on 7/27/12.
 //  Copyright (c) 2012 Q Technology Company. All rights reserved.
 //
 
-#import "QTKDurationTableViewController.h"
+#import "QTKTagTableViewController.h"
 
-@interface QTKDurationTableViewController ()
+@interface QTKTagTableViewController ()
 @property (nonatomic, strong) NSArray *items;
 @end
 
-@implementation QTKDurationTableViewController
+@implementation QTKTagTableViewController
+
 @synthesize items;
 @synthesize delegate;
 
@@ -26,13 +27,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.items = [NSArray arrayWithObjects:@"=15min",@"=30min",@"=45min",@"=1h",@"=", nil];
+    self.items = [NSArray arrayWithObjects:@"#work",@"#chatting",@"#email",@"#adhoc meeting",@"#", nil];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -61,7 +60,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.delegate) {
         NSString * selectedItem = [self.items objectAtIndex:indexPath.row];
-        [self.delegate didSelectDuration:[NSString stringWithFormat:@" %@", selectedItem]];
+        [self.delegate didSelectTag:[NSString stringWithFormat:@" %@", selectedItem]];
     }
 }
 

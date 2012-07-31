@@ -32,8 +32,26 @@
         case QTKQuickEntryTags:
             itemsArray = [NSArray arrayWithObjects:@"#note", @"idea", @"#work",@"#chatting",@"#email",@"#adhoc meeting",@"#", nil];
             break;
-            
+        case QTKQuickEntryDueDates:
+            itemsArray = [NSArray arrayWithObjects:@"^today", @"^tomorrow", @"^sunday", @"^monday", @"^tuesday", @"^wednesday", @"^thursday", @"^friday", @"^saturday", @"sunday",nil];
+            break;
+        case QTKQuickEntryDurations:
+            itemsArray = [NSArray arrayWithObjects:@"=15min",@"=30min",@"=45min",@"=1h",@"=1.5h", @"=", nil];
+            break;
+        case QTKQuickEntryPeople:
+            itemsArray = [NSArray arrayWithObjects:@"~Jian", @"~Kelsey", @"~Mark", @"~Joie", @"Anauradha~", nil];
+            break;
+        case QTKQuickEntryProjects:
+            itemsArray = [NSArray arrayWithObjects:@"$Invesco Mobile", @"$Docket", @"$TO", @"$University Laundry", nil];
+            break;
+        case QTKQuickEntryEvents:
+            itemsArray = [NSArray arrayWithObjects:@"@Stand Up",@"@Tech Review", @"@", nil];
+            break;
+        case QTKQuickEntryActions:
+            itemsArray = [NSArray arrayWithObjects:@"add ", @"call ", @"create ",@"email ", @"finalize ", @"pickup ", @"research ", @"send ", nil];
+            break;
         default:
+            itemsArray = [NSArray array];
             break;
     }
     return itemsArray;

@@ -18,5 +18,5 @@
 @property (nonatomic, strong) id<QTKQuickEntryDelegate> delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style forQuickEntryItem:(QTKQuickEntryType)quickEntryType;
-
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil quickEntryType: (QTKQuickEntryType)quickEntryType;
 @end

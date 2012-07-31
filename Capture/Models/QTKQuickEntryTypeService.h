@@ -13,7 +13,8 @@ enum {
     QTKQuickEntryDueDates = 2,
     QTKQuickEntryProjects = 3,
     QTKQuickEntryPeople = 4,
-    QTKQuickEntryEvents = 5
+    QTKQuickEntryEvents = 5,
+    QTKQuickEntryActions = 6
 };
 typedef NSUInteger QTKQuickEntryType;
 

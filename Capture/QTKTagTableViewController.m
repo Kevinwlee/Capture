@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.items = [NSArray arrayWithObjects:@"#work",@"#chatting",@"#email",@"#adhoc meeting",@"#", nil];
+    self.items = [NSArray arrayWithObjects:@"#note", @"idea", @"#work",@"#chatting",@"#email",@"#adhoc meeting",@"#", nil];
 }
 
 - (void)viewDidUnload {

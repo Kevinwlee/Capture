@@ -16,6 +16,15 @@
 @synthesize items;
 @synthesize delegate;
 
+- (id)initWithStyle:(UITableViewStyle)style forQuickEntryItem:(QTKQuickEntryType)quickEntryType {
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+    
+}
+
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {

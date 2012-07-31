@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.items = [NSArray arrayWithObjects:@"=15min",@"=30min",@"=45min",@"=1h",@"=", nil];
+    self.items = [NSArray arrayWithObjects:@"=15min",@"=30min",@"=45min",@"=1h",@"=1.5h", @"=", nil];
 }
 
 - (void)viewDidUnload {

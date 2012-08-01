@@ -9,6 +9,7 @@
 #import "QTKLogTableViewController.h"
 
 @interface QTKLogTableViewController ()
+@property (nonatomic, strong) NSArray *datasource;
 - (void)handleAddItemNotification:(NSNotification *)notifcation;
 - (void)addItem:(QTKTodoItem *)todoItem;
 
@@ -16,6 +17,7 @@
 
 @implementation QTKLogTableViewController
 @synthesize items = _items;
+@synthesize datasource = _datasource;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -29,6 +31,9 @@
     [super viewDidLoad];
     QTKTodoService *svc = [QTKTodoService sharedService];
     self.items = [NSMutableArray arrayWithArray:[svc allLogItems]];
+
+    self.datasource = [svc allLogItemsGroupedByDay];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAddItemNotification:) name:kLogItemAddedNotification object:nil];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -62,8 +67,19 @@
     [self.tableView endUpdates];
 }
 #pragma mark - Table view data source
+//- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    QTKTodoItem *firstItem = [[self.datasource objectAtIndex:section] objectAtIndex:0];
+//    return [NSString stringWithFormat:@"Completed On%@", firstItem.completedOnDate];
+//}
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return [self.datasource count];
+    return 1;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+//    NSArray *sectionArray = [self.datasource objectAtIndex:section];
+//    return [sectionArray count];
     return [self.items count];
 }
 
@@ -75,6 +91,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
+//    NSArray *sectionArray = [self.datasource objectAtIndex:indexPath.section];
+//    QTKTodoItem *item = [sectionArray objectAtIndex:indexPath.row];
     QTKTodoItem *item = [self.items objectAtIndex:indexPath.row];
     cell.textLabel.text = item.title;
     return cell;

@@ -15,10 +15,9 @@
 @property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic, strong) NSDate *completedOn;
 @property (nonatomic) BOOL completed;
+@property (nonatomic, readonly) NSDate *completedOnDate;
 
 - (id)initLogItemWithTitle:(NSString*)title;
 - (id)initTodoItemWithTitle:(NSString*)title;
 - (BOOL)isTodo;
-
-
 @end

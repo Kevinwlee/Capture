@@ -86,6 +86,22 @@
     return self.logItems;
 }
 
+- (NSArray *)allLogItemsGroupedByDay {
+
+
+    NSArray *dates = [self.logItems valueForKeyPath:@"@distinctUnionOfObjects.completedOnDate"];
+    NSSortDescriptor* sortDatesDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];
+    NSArray *sortedLog =  [dates sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDatesDescriptor]];
+    NSMutableArray *datasource = [NSMutableArray array];
+    for (NSDate *date in sortedLog) {
+        NSLog(@"Date %@", date);
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"completedOnDate == %@", date];
+        NSArray *filteredArray = [self.logItems filteredArrayUsingPredicate:predicate];
+        [datasource addObject:filteredArray];
+    }
+    return datasource;
+}
+
 - (void)persistActionItems {
     dispatch_async(dispatch_queue_create("qteko.async.action.queue", nil), ^{
         NSString *path = PathForFileInDocumentsDirectory(@"ActionItems.db");

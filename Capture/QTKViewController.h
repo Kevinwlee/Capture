@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *webButton;
 @property (weak, nonatomic) IBOutlet UIButton *externalButton;
 @property (weak, nonatomic) IBOutlet UIView *logView;
+@property (weak, nonatomic) IBOutlet UILabel *dayNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 - (IBAction)doneTapped:(id)sender;
 - (IBAction)okayTapped:(id)sender;

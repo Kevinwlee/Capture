@@ -11,12 +11,15 @@
 @interface QTKViewController ()<UIPopoverControllerDelegate>
 @property(nonatomic, strong) UIPopoverController *popoverController;
 @property (nonatomic, strong) NSMutableArray *buttons;
+@property (nonatomic, strong) NSDate* currentDate;
 - (NSString *)cleanString;
 - (void)showQuickBar;
 - (void)hideQuickBar;
 - (void)deselectButtons;
 - (void)handleHUDTapForButton:(UIButton*)button andActionString:(NSString *)actionString;
 - (void)displayQuickEntryListForType:(QTKQuickEntryType)type fromButton:(UIButton *)button;
+- (NSString *)currentDayNumberString;
+- (NSString *)currentMonthString;
 @end
 
 @implementation QTKViewController
@@ -31,13 +34,18 @@
 @synthesize webButton;
 @synthesize externalButton;
 @synthesize logView;
+@synthesize dayNumberLabel;
+@synthesize monthLabel;
 @synthesize quickEntryView;
 @synthesize popoverController;
 @synthesize buttons;
+@synthesize currentDate;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    self.currentDate = [NSDate date];
+    self.dayNumberLabel.text = [self currentDayNumberString];
+    self.monthLabel.text = [self currentMonthString];
     
     CGRect frame = self.quickEntryView.frame;
     frame.size.height = 0;
@@ -71,6 +79,8 @@
     [self setWebButton:nil];
     [self setExternalButton:nil];
     [self setLogView:nil];
+    [self setDayNumberLabel:nil];
+    [self setMonthLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -83,7 +93,23 @@
         return YES;
     }
 }
+- (NSString *)currentDayNumberString {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"d"];
+    NSString *day = [df stringFromDate:self.currentDate];
+    return day;
+}
+- (NSString *)currentMonthString {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"MMMM"];
+    NSString *day = [df stringFromDate:self.currentDate];
+    return day;
+}
 
+- (void)logDate {
+    NSLog(@"day: %@", [self currentDayNumberString]);
+    NSLog(@"month: %@", [self currentMonthString]);
+}
 - (IBAction)doneTapped:(id)sender {    
     
 }

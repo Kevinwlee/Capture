@@ -21,7 +21,8 @@
 - (void)saveTodoItem:(QTKTodoItem *)item;
 - (void)saveTodoItemWithQuickInputString:(NSString *)quickInput;
 
-- (NSArray *)allLogItems;
 
+- (NSArray *)allLogItems;
+- (NSArray *)allLogItemsGroupedByDay;
 - (void)persistData;
 @end

@@ -64,6 +64,17 @@
     return modifiedString;
 }
 
+
+- (NSDate *)completedOnDate {
+    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:flags fromDate:self.completedOn];
+    return [calendar dateFromComponents:components];
+}
+
+
+#pragma mark - NSCoding
+
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.title forKey:@"title"];
     [aCoder encodeObject:self.createdAt forKey:@"createdAt"];

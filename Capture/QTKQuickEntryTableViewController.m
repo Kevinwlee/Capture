@@ -9,12 +9,32 @@
 #import "QTKQuickEntryTableViewController.h"
 
 @interface QTKQuickEntryTableViewController ()
-
+@property (nonatomic) QTKQuickEntryType quickEntryType;
 @end
 
 @implementation QTKQuickEntryTableViewController
+@synthesize quickEntryType = _quickEntryType;
 @synthesize items;
 @synthesize delegate;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil quickEntryType: (QTKQuickEntryType)quickEntryType {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        _quickEntryType = quickEntryType;
+    }
+    return self;
+}
+
+- (id)initWithStyle:(UITableViewStyle)style forQuickEntryItem:(QTKQuickEntryType)quickEntryType {
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+        _quickEntryType = quickEntryType;
+    }
+    return self;
+    
+}
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -25,6 +45,9 @@
 }
 
 - (void)viewDidLoad {
+    QTKQuickEntryTypeService *svc = [QTKQuickEntryTypeService sharedService];    
+    self.items = [svc quickEntryItemsFor:self.quickEntryType];
+    [self.tableView reloadData];
     [super viewDidLoad];
 }
 

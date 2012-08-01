@@ -12,6 +12,7 @@
 @interface QTKToDoTableViewController ()
 - (void)handleAddItemNotification:(NSNotification *)notifcation;
 - (void)addItem:(QTKTodoItem *)todoItem;
+- (void)loadData;
 @end
 
 @implementation QTKToDoTableViewController
@@ -28,8 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    QTKTodoService *svc = [QTKTodoService sharedService];
-    self.items = [NSMutableArray arrayWithArray:[svc allTodoItems]];
+    [self loadData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAddItemNotification:) name:kTodoItemAddedNotification object:nil];
 }
 
@@ -41,7 +41,10 @@
 {
 	return YES;
 }
-
+- (void)loadData {
+    QTKTodoService *svc = [QTKTodoService sharedService];
+    self.items = [NSMutableArray arrayWithArray:[svc openTodoItems]];
+}
 - (void)handleAddItemNotification:(NSNotification *)notifcation {
     QTKTodoItem *item = notifcation.object;
     [self addItem:item];
@@ -116,6 +119,10 @@
     if (self.delegate) {
         QTKTodoItem *selectedItem = [self.items objectAtIndex:indexPath.row];
         [self.delegate didSelecteTodoItem:selectedItem];
+        selectedItem.completed = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTodoItemChangedNotification object:selectedItem];
+        [self loadData];
+        [self.tableView reloadData];
     }
 }
 

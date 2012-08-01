@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QTKDurationTableViewController.h"
 #import "QTKLogTableViewController.h"
 #import "QTKToDoTableViewController.h"
 #import "QTKTodoService.h"
-#import "QTKTagTableViewController.h"
 #import "QTKQuickEntryTableViewController.h"
 
-@interface QTKViewController : UIViewController <UITextFieldDelegate, QTKTodoListDelegate, QTKDurationListDelegate, QTKTagListDelegate, QTKQuickEntryDelegate>
-@property (strong, nonatomic) IBOutlet QTKDurationTableViewController *durationTableViewController;
+@interface QTKViewController : UIViewController <UITextFieldDelegate, QTKTodoListDelegate, QTKQuickEntryDelegate>
 @property (weak, nonatomic) IBOutlet UIView *quickEntryView;
 @property (strong, nonatomic) IBOutlet QTKLogTableViewController *logTableViewController;
 @property (strong, nonatomic) IBOutlet QTKToDoTableViewController *todoTableViewController;

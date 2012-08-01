@@ -10,7 +10,29 @@
 
 @implementation QTKTodoItem
 @synthesize title = _title;
+@synthesize createdAt = _createdAt, updatedAt = _updatedAt, completedOn = _completedOn;
+@synthesize completed;
 
+- (id)initLogItemWithTitle:(NSString*)title {
+    self = [super init];
+    if (self) {
+        self.title = title;
+        self.createdAt = [NSDate date];
+        self.updatedAt = [NSDate date];
+        self.completedOn = [NSDate date];
+        self.completed = YES;
+    }
+    return self;
+}
+- (id)initTodoItemWithTitle:(NSString*)title {
+    self = [super init];
+    if (self) {
+        self.title = title;
+        self.createdAt = [NSDate date];
+        self.completed = NO;
+    }
+    return self;
+}
 
 - (BOOL)isTodo {
     NSRange range = [self.title rangeOfString:@"t: "];
@@ -40,6 +62,26 @@
                                                                  range:NSMakeRange(0, [text length])
                                                           withTemplate:@""];
     return modifiedString;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.createdAt forKey:@"createdAt"];
+    [aCoder encodeObject:self.updatedAt forKey:@"updatedAt"];
+    [aCoder encodeObject:self.completedOn forKey:@"completedOn"];
+    [aCoder encodeObject:[NSNumber numberWithBool:self.completed] forKey:@"completed"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.title = [aDecoder decodeObjectForKey:@"title"];
+        self.createdAt = [aDecoder decodeObjectForKey:@"createdAt"];
+        self.updatedAt = [aDecoder decodeObjectForKey:@"updatedAt"];
+        self.completedOn = [aDecoder decodeObjectForKey:@"completedOn"];
+        self.completed = [[aDecoder decodeObjectForKey:@"completed"] boolValue];
+    }
+    return self;
 }
 
 @end

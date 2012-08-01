@@ -75,20 +75,12 @@
         [self persistLogItems];
     }
 }
-- (void)completeTodoItem:(QTKTodoItem *)item{
-    if ([self.todoItems containsObject:item]){
-        NSLog(@"I'm already here, just mark me as completed and be done with it");
-    } else {
-        NSLog(@"Hm , you'll need to find it and complete it and save it");
-    }
-}
 
 - (void)saveTodoItemWithQuickInputString:(NSString *)quickInput {
     QTKTodoItem *item = [[QTKTodoItem alloc] init];
     item.title = quickInput;
     [self saveTodoItem:item];
 }
-
 
 - (NSArray *)allLogItems{
     return self.logItems;
@@ -118,4 +110,5 @@
     [self persistActionItems];
     [self persistLogItems];
 }
+
 @end

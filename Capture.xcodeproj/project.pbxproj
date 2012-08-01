@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A189F0915C42B6600D1E7AE /* QTKPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A189F0815C42B6600D1E7AE /* QTKPathHelpers.m */; };
 		0A4ED82615C0698800E4B67F /* btn-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4ED82415C0698800E4B67F /* btn-highlighted.png */; };
 		0A4ED82715C0698800E4B67F /* btn-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4ED82515C0698800E4B67F /* btn-highlighted@2x.png */; };
 		0A4ED82A15C16CAB00E4B67F /* btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4ED82915C16CAB00E4B67F /* btn.png */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A189F0715C42B6600D1E7AE /* QTKPathHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTKPathHelpers.h; path = Models/QTKPathHelpers.h; sourceTree = "<group>"; };
+		0A189F0815C42B6600D1E7AE /* QTKPathHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTKPathHelpers.m; path = Models/QTKPathHelpers.m; sourceTree = "<group>"; };
 		0A4ED82415C0698800E4B67F /* btn-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-highlighted.png"; sourceTree = "<group>"; };
 		0A4ED82515C0698800E4B67F /* btn-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-highlighted@2x.png"; sourceTree = "<group>"; };
 		0A4ED82915C16CAB00E4B67F /* btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn.png; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				0AD532E815C0096E00ECEE08 /* QTKTodoService.m */,
 				0AD532EA15C00A4700ECEE08 /* QTKTodoItem.h */,
 				0AD532EB15C00A4700ECEE08 /* QTKTodoItem.m */,
+				0A189F0715C42B6600D1E7AE /* QTKPathHelpers.h */,
+				0A189F0815C42B6600D1E7AE /* QTKPathHelpers.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				0AD532EC15C00A4700ECEE08 /* QTKTodoItem.m in Sources */,
 				0AFAC1A115C37A0400122CFE /* QTKTagTableViewController.m in Sources */,
 				0AFAC1A615C3880D00122CFE /* QTKQuickEntryTableViewController.m in Sources */,
+				0A189F0915C42B6600D1E7AE /* QTKPathHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

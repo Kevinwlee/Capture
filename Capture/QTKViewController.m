@@ -7,6 +7,7 @@
 //
 
 #import "QTKViewController.h"
+#import "QTKChronic.h"
 
 @interface QTKViewController ()<UIPopoverControllerDelegate>
 @property(nonatomic, strong) UIPopoverController *popoverController;
@@ -41,8 +42,21 @@
 @synthesize buttons;
 @synthesize currentDate;
 
+- (void)playWithDates {
+    NSLog(@"Today: %@", [QTKChronic parse:@"Today"]);
+    NSLog(@"tomorrow: %@", [QTKChronic parse:@"tomorrow"]);
+    NSLog(@"Monday: %@", [QTKChronic parse:@"Monday"]);
+    NSLog(@"tuesday: %@", [QTKChronic parse:@"tuesday"]);
+    NSLog(@"wEDnesday: %@", [QTKChronic parse:@"wEDnesday"]);
+    NSLog(@"thursday: %@", [QTKChronic parse:@"thursday"]);
+    NSLog(@"friday: %@", [QTKChronic parse:@"friday"]);
+    NSLog(@"saturday: %@", [QTKChronic parse:@"saturday"]);
+    NSLog(@"sunday: %@", [QTKChronic parse:@"sunday"]);    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self playWithDates];
     self.currentDate = [NSDate date];
     self.dayNumberLabel.text = [self currentDayNumberString];
     self.monthLabel.text = [self currentMonthString];
@@ -243,6 +257,15 @@
 
 - (IBAction)actionTapped:(id)sender {
     [self displayQuickEntryListForType:QTKQuickEntryActions fromButton:sender];
+}
+
+- (IBAction)showActionItemsTapped:(id)sender {
+}
+
+- (IBAction)showLogTapped:(id)sender {
+    QTKLogTableViewController *fullLogTableViewController = [[QTKLogTableViewController alloc] initWithNibName:@"QTKLogTableViewController" bundle:nil];
+    fullLogTableViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentModalViewController:fullLogTableViewController animated:YES];
 }
 
 - (void)displayQuickEntryListForType:(QTKQuickEntryType)type fromButton:(UIButton *)button {

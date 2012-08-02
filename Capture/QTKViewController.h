@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QTKLogTableViewController.h"
+#import "QTKDailyActivitLogTableViewController.h"
 #import "QTKToDoTableViewController.h"
 #import "QTKTodoService.h"
 #import "QTKQuickEntryTableViewController.h"
+#import "QTKLogTableViewController.h"
 
 @interface QTKViewController : UIViewController <UITextFieldDelegate, QTKTodoListDelegate, QTKQuickEntryDelegate>
 @property (weak, nonatomic) IBOutlet UIView *quickEntryView;
@@ -44,5 +45,8 @@
 - (IBAction)eventTapped:(id)sender;
 - (IBAction)dueTapped:(id)sender;
 - (IBAction)actionTapped:(id)sender;
+
+- (IBAction)showActionItemsTapped:(id)sender;
+- (IBAction)showLogTapped:(id)sender;
 
 @end

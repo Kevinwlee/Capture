@@ -17,6 +17,8 @@
 + (QTKTodoService *)sharedService;
 - (NSArray *)allTodoItems;
 - (NSArray *)openTodoItems;
+- (NSArray *)todaysTodoItems;
+
 - (NSArray *)todoItemsAtIndexes:(NSIndexSet *)indexes;
 - (void)saveTodoItem:(QTKTodoItem *)item;
 - (void)saveTodoItemWithQuickInputString:(NSString *)quickInput;

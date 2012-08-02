@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A189F0915C42B6600D1E7AE /* QTKPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A189F0815C42B6600D1E7AE /* QTKPathHelpers.m */; };
 		0A4ED82615C0698800E4B67F /* btn-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4ED82415C0698800E4B67F /* btn-highlighted.png */; };
 		0A4ED82715C0698800E4B67F /* btn-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4ED82515C0698800E4B67F /* btn-highlighted@2x.png */; };
 		0A4ED82A15C16CAB00E4B67F /* btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4ED82915C16CAB00E4B67F /* btn.png */; };
@@ -37,14 +36,15 @@
 		0AFDEDB315BEC4AE001066B2 /* QTKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDEDB215BEC4AE001066B2 /* QTKAppDelegate.m */; };
 		0AFDEDB615BEC4AE001066B2 /* QTKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDEDB515BEC4AE001066B2 /* QTKViewController.m */; };
 		0AFDEDBC15BEC4AE001066B2 /* QTKViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFDEDBA15BEC4AE001066B2 /* QTKViewController_iPad.xib */; };
+		FF7C7B5215CA96BD0054113C /* QTKDailyActivitLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7C7B5015CA96BD0054113C /* QTKDailyActivitLogTableViewController.m */; };
+		FF7C7B5315CA96BD0054113C /* QTKDailyActivitLogTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7C7B5115CA96BD0054113C /* QTKDailyActivitLogTableViewController.xib */; };
+		FF7C7B5715CAA73D0054113C /* QTKChronic.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7C7B5615CAA73D0054113C /* QTKChronic.m */; };
 		FF8ABA7815C7FAF800F49C2A /* QTKPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8ABA7515C7FAF700F49C2A /* QTKPathHelpers.m */; };
 		FF8ABA7915C7FAF800F49C2A /* QTKTodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8ABA7715C7FAF800F49C2A /* QTKTodoItem.m */; };
 		FFBF508E15C7F2A60034ACF3 /* QTKQuickEntryTypeService.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBF508D15C7F2A60034ACF3 /* QTKQuickEntryTypeService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A189F0715C42B6600D1E7AE /* QTKPathHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTKPathHelpers.h; path = Models/QTKPathHelpers.h; sourceTree = "<group>"; };
-		0A189F0815C42B6600D1E7AE /* QTKPathHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTKPathHelpers.m; path = Models/QTKPathHelpers.m; sourceTree = "<group>"; };
 		0A4ED82415C0698800E4B67F /* btn-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-highlighted.png"; sourceTree = "<group>"; };
 		0A4ED82515C0698800E4B67F /* btn-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-highlighted@2x.png"; sourceTree = "<group>"; };
 		0A4ED82915C16CAB00E4B67F /* btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn.png; sourceTree = "<group>"; };
@@ -83,6 +83,11 @@
 		0AFDEDB415BEC4AE001066B2 /* QTKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTKViewController.h; sourceTree = "<group>"; };
 		0AFDEDB515BEC4AE001066B2 /* QTKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTKViewController.m; sourceTree = "<group>"; };
 		0AFDEDBB15BEC4AE001066B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QTKViewController_iPad.xib; sourceTree = "<group>"; };
+		FF7C7B4F15CA96BD0054113C /* QTKDailyActivitLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTKDailyActivitLogTableViewController.h; sourceTree = "<group>"; };
+		FF7C7B5015CA96BD0054113C /* QTKDailyActivitLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTKDailyActivitLogTableViewController.m; sourceTree = "<group>"; };
+		FF7C7B5115CA96BD0054113C /* QTKDailyActivitLogTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QTKDailyActivitLogTableViewController.xib; sourceTree = "<group>"; };
+		FF7C7B5515CAA73D0054113C /* QTKChronic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTKChronic.h; path = Models/QTKChronic.h; sourceTree = "<group>"; };
+		FF7C7B5615CAA73D0054113C /* QTKChronic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTKChronic.m; path = Models/QTKChronic.m; sourceTree = "<group>"; };
 		FF8ABA7415C7FAF700F49C2A /* QTKPathHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTKPathHelpers.h; path = Models/QTKPathHelpers.h; sourceTree = "<group>"; };
 		FF8ABA7515C7FAF700F49C2A /* QTKPathHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTKPathHelpers.m; path = Models/QTKPathHelpers.m; sourceTree = "<group>"; };
 		FF8ABA7615C7FAF700F49C2A /* QTKTodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTKTodoItem.h; path = Models/QTKTodoItem.h; sourceTree = "<group>"; };
@@ -153,6 +158,9 @@
 				0AD532D215BF143900ECEE08 /* QTKLogTableViewController.h */,
 				0AD532D315BF143900ECEE08 /* QTKLogTableViewController.m */,
 				0AD532D415BF143900ECEE08 /* QTKLogTableViewController.xib */,
+				FF7C7B4F15CA96BD0054113C /* QTKDailyActivitLogTableViewController.h */,
+				FF7C7B5015CA96BD0054113C /* QTKDailyActivitLogTableViewController.m */,
+				FF7C7B5115CA96BD0054113C /* QTKDailyActivitLogTableViewController.xib */,
 			);
 			name = Log;
 			sourceTree = "<group>";
@@ -178,6 +186,8 @@
 				0AD532E815C0096E00ECEE08 /* QTKTodoService.m */,
 				FFBF508C15C7F2A60034ACF3 /* QTKQuickEntryTypeService.h */,
 				FFBF508D15C7F2A60034ACF3 /* QTKQuickEntryTypeService.m */,
+				FF7C7B5515CAA73D0054113C /* QTKChronic.h */,
+				FF7C7B5615CAA73D0054113C /* QTKChronic.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -306,6 +316,7 @@
 				0A8A61A315C31377000A4862 /* Default-Portrait@2x~ipad.png in Resources */,
 				0A8A61A415C31377000A4862 /* Default-Portrait~ipad.png in Resources */,
 				0AFAC1A715C3880D00122CFE /* QTKQuickEntryTableViewController.xib in Resources */,
+				FF7C7B5315CA96BD0054113C /* QTKDailyActivitLogTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +337,8 @@
 				FFBF508E15C7F2A60034ACF3 /* QTKQuickEntryTypeService.m in Sources */,
 				FF8ABA7815C7FAF800F49C2A /* QTKPathHelpers.m in Sources */,
 				FF8ABA7915C7FAF800F49C2A /* QTKTodoItem.m in Sources */,
+				FF7C7B5215CA96BD0054113C /* QTKDailyActivitLogTableViewController.m in Sources */,
+				FF7C7B5715CAA73D0054113C /* QTKChronic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

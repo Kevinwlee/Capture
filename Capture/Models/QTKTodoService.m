@@ -49,6 +49,12 @@
     return self.todoItems;
 }
 
+- (NSArray *)todaysTodoItems {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"due == YES"];    
+    NSArray *due = [[self openTodoItems] filteredArrayUsingPredicate:predicate];
+    return due;
+}
+
 - (NSArray *)openTodoItems {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"completed == NO"];
     NSArray *openItems = [self.todoItems filteredArrayUsingPredicate:pred];

@@ -43,7 +43,7 @@
 }
 - (void)loadData {
     QTKTodoService *svc = [QTKTodoService sharedService];
-    self.items = [NSMutableArray arrayWithArray:[svc openTodoItems]];
+    self.items = [NSMutableArray arrayWithArray:[svc todaysTodoItems]];
 }
 - (void)handleAddItemNotification:(NSNotification *)notifcation {
     QTKTodoItem *item = notifcation.object;

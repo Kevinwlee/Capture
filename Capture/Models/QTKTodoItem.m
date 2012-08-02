@@ -72,6 +72,17 @@
     return [calendar dateFromComponents:components];
 }
 
+- (BOOL)due {
+    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:flags fromDate:self.createdAt];
+    NSDate *created = [calendar dateFromComponents:components];
+    
+    components = [calendar components:flags fromDate:[NSDate date]];
+    NSDate *today = [calendar dateFromComponents:components];
+    return [today isEqualToDate:created];                  
+}
+
 
 #pragma mark - NSCoding
 

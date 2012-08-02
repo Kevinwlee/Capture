@@ -7,35 +7,33 @@
 //
 
 #import "QTKTodoItem.h"
+@interface QTKTodoItem()
+@property (nonatomic, readonly) NSString *quickEntryTextStrippedOfAction;
+@end
 
 @implementation QTKTodoItem
-@synthesize title = _title;
+@synthesize quickEntryText = _title;
 @synthesize createdAt = _createdAt, updatedAt = _updatedAt, completedOn = _completedOn;
 @synthesize completed;
+@synthesize dueDate;
 
-- (id)initLogItemWithTitle:(NSString*)title {
+- (id)initWithQuickEntryText:(NSString *)quickEntryText {
     self = [super init];
     if (self) {
-        self.title = title;
+        self.quickEntryText = quickEntryText;
         self.createdAt = [NSDate date];
         self.updatedAt = [NSDate date];
-        self.completedOn = [NSDate date];
-        self.completed = YES;
-    }
-    return self;
-}
-- (id)initTodoItemWithTitle:(NSString*)title {
-    self = [super init];
-    if (self) {
-        self.title = title;
-        self.createdAt = [NSDate date];
-        self.completed = NO;
+        
+        if (!self.isTodo) {
+            self.completedOn = [NSDate date];
+            self.completed = YES;
+        }
     }
     return self;
 }
 
 - (BOOL)isTodo {
-    NSRange range = [self.title rangeOfString:@"t: "];
+    NSRange range = [self.quickEntryText rangeOfString:@"t: "];
     if (range.length != 0) {
         return YES;
     }
@@ -44,14 +42,14 @@
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     
-    NSInteger matches = [regex numberOfMatchesInString:self.title options:0 range:NSMakeRange(0, [self.title length])];
+    NSInteger matches = [regex numberOfMatchesInString:self.quickEntryText options:0 range:NSMakeRange(0, [self.quickEntryText length])];
 
     return matches == 0;
 }
 
-- (NSString *)titleClean {
+- (NSString *)quickEntryTextStrippedOfAction {
 
-    NSString *text = self.title;
+    NSString *text = self.quickEntryText;
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"t: |s: |f: |e: |i: |m: "
                                                                            options:NSRegularExpressionCaseInsensitive
@@ -83,27 +81,49 @@
     return [today isEqualToDate:created];                  
 }
 
+- (void)setPropertiesFromQuickString {
+       
+    NSString *text = self.quickEntryText;
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]*"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+
+    [regex enumerateMatchesInString:self.quickEntryText options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [text length]) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+        NSLog(@"range %@", result.range);
+    }];
+}
+
+- (NSString*)text {
+//    [self setPropertiesFromQuickString];
+    NSString *textToBe = self.quickEntryTextStrippedOfAction;
+    NSArray *components = [textToBe componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#^=~@$"]];
+    return [components objectAtIndex:0];
+}
 
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.quickEntryText forKey:@"title"];
     [aCoder encodeObject:self.createdAt forKey:@"createdAt"];
     [aCoder encodeObject:self.updatedAt forKey:@"updatedAt"];
     [aCoder encodeObject:self.completedOn forKey:@"completedOn"];
+    [aCoder encodeObject:self.dueDate forKey:@"dueDate"];
     [aCoder encodeObject:[NSNumber numberWithBool:self.completed] forKey:@"completed"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self.title = [aDecoder decodeObjectForKey:@"title"];
+        self.quickEntryText = [aDecoder decodeObjectForKey:@"title"];
         self.createdAt = [aDecoder decodeObjectForKey:@"createdAt"];
         self.updatedAt = [aDecoder decodeObjectForKey:@"updatedAt"];
         self.completedOn = [aDecoder decodeObjectForKey:@"completedOn"];
         self.completed = [[aDecoder decodeObjectForKey:@"completed"] boolValue];
+        self.dueDate = [aDecoder decodeObjectForKey:@"dueDate"];
     }
     return self;
 }
+
 
 @end

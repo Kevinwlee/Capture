@@ -312,7 +312,7 @@
 #pragma mark - QTKTodoListDelegate
 
 - (void)didSelecteTodoItem:(QTKTodoItem*)item {
-    self.inputTextField.text = [NSString stringWithFormat:@"f: %@", item.titleClean];
+    self.inputTextField.text = [NSString stringWithFormat:@"f: %@", item.text];
     [self showQuickBar];
 }
 

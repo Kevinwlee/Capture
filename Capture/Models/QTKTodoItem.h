@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface QTKTodoItem : NSObject <NSCoding>
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, readonly) NSString *titleClean;
+@property (nonatomic, strong) NSString *quickEntryText;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic, strong) NSDate *completedOn;
 @property (nonatomic) BOOL completed;
 @property (nonatomic, readonly) NSDate *completedOnDate;
+@property (nonatomic, readonly) NSString *text;
+@property (nonatomic, strong) NSDate *dueDate;
 
-- (id)initLogItemWithTitle:(NSString*)title;
-- (id)initTodoItemWithTitle:(NSString*)title;
+- (id)initWithQuickEntryText:(NSString *)quickEntryText;
 - (BOOL)isTodo;
 @end

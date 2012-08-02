@@ -68,23 +68,17 @@
 - (void)saveTodoItem:(QTKTodoItem *)item {
     if ([item isTodo]) {
         [self.todoItems addObject:item];
-        item.createdAt = [NSDate date];
-        item.completed = NO;
         [[NSNotificationCenter defaultCenter] postNotificationName:kTodoItemAddedNotification object:item];
         [self persistActionItems];
     } else {
         [self.logItems addObject:item];
-        item.createdAt = [NSDate date];
-        item.completed = NO;
-        item.completedOn =  [NSDate date];
         [[NSNotificationCenter defaultCenter] postNotificationName:kLogItemAddedNotification object:item];        
         [self persistLogItems];
     }
 }
 
 - (void)saveTodoItemWithQuickInputString:(NSString *)quickInput {
-    QTKTodoItem *item = [[QTKTodoItem alloc] init];
-    item.title = quickInput;
+    QTKTodoItem *item = [[QTKTodoItem alloc] initWithQuickEntryText:quickInput];
     [self saveTodoItem:item];
 }
 

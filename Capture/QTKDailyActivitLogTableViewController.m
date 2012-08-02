@@ -61,7 +61,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     QTKTodoItem *item = [self.items objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.title;
+    cell.textLabel.text = item.quickEntryText;
     return cell;
 }
 

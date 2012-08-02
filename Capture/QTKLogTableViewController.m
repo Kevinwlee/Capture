@@ -75,7 +75,7 @@
     // Configure the cell...
     NSArray *sectionArray = [self.datasource objectAtIndex:indexPath.section];
     QTKTodoItem *item = [sectionArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.title;
+    cell.textLabel.text = item.quickEntryText;
     return cell;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "QTKTodoItem.h"
+#import "QTKChronic.h"
+
 @interface QTKTodoItem()
 @property (nonatomic, readonly) NSString *quickEntryTextStrippedOfAction;
 @end
@@ -82,20 +84,28 @@
 }
 
 - (void)setPropertiesFromQuickString {
-       
-    NSString *text = self.quickEntryText;
-    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]*"
-                                                                           options:NSRegularExpressionCaseInsensitive
-                                                                             error:&error];
-
-    [regex enumerateMatchesInString:self.quickEntryText options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [text length]) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-        NSLog(@"range %@", result.range);
-    }];
+    NSString *escapedRegex = @"\\^[a-zA-Z]*";
+    
+    
+    NSRegularExpression *expression = [NSRegularExpression 
+                                       regularExpressionWithPattern:escapedRegex 
+                                       options:0 
+                                       error:nil];
+    
+    [expression enumerateMatchesInString:self.quickEntryText
+                                 options:0
+                                   range:NSMakeRange(0, self.quickEntryText.length) 
+                              usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                  NSRange range = result.range;
+                                  range.location ++;
+                                  range.length --;
+                                  NSString *matchString = [self.quickEntryText substringWithRange:range];
+                                  NSLog(@"%@", [QTKChronic parse:matchString]);
+                              }];
 }
 
 - (NSString*)text {
-//    [self setPropertiesFromQuickString];
+    [self setPropertiesFromQuickString];
     NSString *textToBe = self.quickEntryTextStrippedOfAction;
     NSArray *components = [textToBe componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#^=~@$"]];
     return [components objectAtIndex:0];
